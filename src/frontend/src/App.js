@@ -6,6 +6,8 @@ import {
     LoadingOutlined
 } from '@ant-design/icons';
 
+import logo from './hbo-max-h-w-l.svg';
+
 const { Header, Content, Footer } = Layout;
 
 const columns = [
@@ -83,19 +85,20 @@ function App() {
         return <Table dataSource={shows} columns={columns}
                       bordered
                       title={() => 'Upcoming Shows'}
-                      pagination={{ pageSize: 50 }} scroll={{ y: 240 }}
+                      pagination={{ pageSize: 20 }} scroll={{ y: 240 }}
                       rowKey={(show) => show.id}/>;
     }
 
   return <Layout className="layout">
       <Header>
-          <div className="logo" />
-          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-          </Menu>
+      <div className="header">
+          <img src="https://www.hbomax.com/img/hbo-max-h-w-l.svg" alt="logo"/>
+      </div>
       </Header>
+
       <Content style={{ padding: '0 50px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
+
           </Breadcrumb>
           <div className="site-layout-content">
               {renderShows()}
@@ -106,3 +109,4 @@ function App() {
 }
 
 export default App;
+

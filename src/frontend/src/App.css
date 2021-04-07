@@ -41,6 +41,18 @@
   color: white;
 }
 
+.ant-layout-header{
+  height: 5vh;
+  background-color: #250d58;
+}
+
+.header img {
+  float: left;
+  width: 130px;
+  height: 40px;
+  background: #250d58;
+}
+
 .App-link {
   color: #61dafb;
 }
