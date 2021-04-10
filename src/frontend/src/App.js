@@ -27,25 +27,26 @@ const columns = [
         dataIndex: 'rating',
         key: 'rating',
         render: rating => {var color;
-            if(rating === 'G')
+            if(rating.name === 'G')
                 color = 'blue'
-            if(rating === 'PG')
+            if(rating.name === 'PG')
                 color = 'cyan'
-            if(rating === 'PG-13')
+            if(rating.name === 'PG-13')
                 color = 'green'
-            if(rating === 'R')
+            if(rating.name === 'R')
                 color = 'orange'
-            if(rating === 'NC-17')
+            if(rating.name === 'NC-17')
                 color = 'red'
 
         return <Tag color={color} key={rating}>
-            {rating}
+            {rating.name}
         </Tag>}
     },
     {
         title: 'Genre',
         dataIndex: 'genre',
         key: 'genre',
+        render: genre => genre.name
     },
     {
         title: 'Trailer',
