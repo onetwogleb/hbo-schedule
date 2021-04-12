@@ -6,8 +6,6 @@ import {
     LoadingOutlined
 } from '@ant-design/icons';
 
-import logo from './hbo-max-h-w-l.svg';
-
 const { Header, Content, Footer } = Layout;
 
 const columns = [
@@ -86,7 +84,7 @@ function App() {
         return <Table dataSource={shows} columns={columns}
                       bordered
                       title={() => 'Upcoming Shows'}
-                      pagination={{ pageSize: 20 }} scroll={{ y: 240 }}
+                      pagination={{ pageSize: 20 }} scroll={{ y: 500 }}
                       rowKey={(show) => show.id}/>;
     }
 

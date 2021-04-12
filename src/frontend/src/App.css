@@ -42,7 +42,7 @@
 }
 
 .ant-layout-header{
-  height: 5vh;
+  height: auto;
   background-color: #250d58;
 }
 
@@ -51,7 +51,6 @@
   width: 130px;
   height: 40px;
   max-width: 100%;
-  background: #250d58;
 }
 
 .App-link {
