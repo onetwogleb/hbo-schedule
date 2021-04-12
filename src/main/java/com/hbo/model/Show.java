@@ -26,11 +26,11 @@ public class Show {
     private String name;
     private String date;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "rating_id")
     private Rating rating;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "genre_id")
     private Genre genre;
 
