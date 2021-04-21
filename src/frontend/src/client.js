@@ -11,5 +11,5 @@ const checkStatus = response => {
 }
 
 export const getAllShows = () =>
-    fetch("hbo/schedule")
+    fetch("hbo/shows")
         .then(checkStatus);

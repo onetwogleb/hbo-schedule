@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@RequestMapping("hbo/schedule")
+@RequestMapping("hbo/shows")
 @AllArgsConstructor
 public class ShowController {
 
@@ -24,9 +24,26 @@ public class ShowController {
         return showService.getAllShows();
     }
 
+    @GetMapping("/{id}")
+    public Show getOneShow(@PathVariable Long id) {
+        return showService.getOneShow(id).get();
+    }
+
     @PostMapping
     public void addShow(@RequestBody ShowDTO showDTO){
         Show show = mapService.mapShow(showDTO);
-        showService.addShow(show);
+        showService.saveShow(show);
+    }
+
+    @PutMapping("/{id}")
+    public void updateShow(@PathVariable Long id, @RequestBody ShowDTO showDTO){
+        Show show = showService.getOneShow(id).get();
+        mapService.mapShow(show, showDTO);
+        showService.saveShow(show);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteShow(@PathVariable Long id){
+        showService.deleteShow(id);
     }
 }

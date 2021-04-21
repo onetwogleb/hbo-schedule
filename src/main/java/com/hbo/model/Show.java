@@ -3,6 +3,8 @@ package com.hbo.model;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 
 @AllArgsConstructor
@@ -23,15 +25,19 @@ public class Show {
             generator = "show_sequence",
             strategy = GenerationType.SEQUENCE)
     private Long id;
+
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String date;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "rating_id")
+    @JoinColumn(name = "rating_id", nullable = false)
     private Rating rating;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "genre_id")
+    @JoinColumn(name = "genre_id", nullable = false)
     private Genre genre;
 
     private String trailer;

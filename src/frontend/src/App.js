@@ -5,6 +5,7 @@ import { Layout, Menu, Breadcrumb, Table, Spin, Empty, Tag } from 'antd';
 import {
     LoadingOutlined
 } from '@ant-design/icons';
+import {errorNotification} from "./Notification";
 
 const { Header, Content, Footer } = Layout;
 
@@ -67,7 +68,16 @@ function App() {
             console.log(data);
             setShows(data);
             setFetching(false);
-          })
+          }).catch(err => {
+          console.log(err.response)
+          err.response.json().then(res => {
+              console.log(res);
+              errorNotification(
+                  "There was an issue",
+                  `${res.message} [${res.status}] [${res.error}]`
+              )
+          });
+      }).finally(() => setFetching(false))
 
   useEffect(() => {
     console.log("component is mounted")
