@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>HBO Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="icon" href="https://toppng.com/uploads/preview/hbo-logo-grey-mlb-advanced-media-logo-11563029531mwptgarrpu.png">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" th:href="@{/admin}">HBO Admin</a>
+    <a class="btn btn-secondary ml-auto mr-1" th:href="@{/logout}" role="button">Sign Out</a>
+</nav>
+<br>
+
+<div class="container">
+    <div class="inline">
+    <h3>Upcoming Shows</h3>
+        <p th:align="right"><a class="btn btn-warning" th:href="@{/admin/form}" role="button">Add Show</a></p>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Rating</th>
+            <th>Genre</th>
+            <th>Trailer</th>
+            <td colspan="2"></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="show: ${shows}">
+
+        <td th:text="${show.id}"></td>
+        <td th:text="${show.name}"></td>
+        <td th:text="${show.date}"></td>
+        <td th:text="${show.rating.name}"></td>
+        <td th:text="${show.genre.name}"></td>
+        <td th:text="${show.trailer}"></td>
+        <td><a class="btn btn-info" th:href="@{/admin/edit/{id}(id=${show.id})}" role="button">Update</a>
+            &nbsp;
+            <a class="btn btn-danger" th:href="@{/admin/delete/{id}(id=${show.id})}" role="button">Remove</a>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

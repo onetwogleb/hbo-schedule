@@ -16,7 +16,16 @@ public class MapService {
 
     public Show mapShow(ShowDTO showDTO) {
         Show show = new Show();
-        show.setId(showDTO.getId());
+        show.setName(showDTO.getName());
+        show.setDate(showDTO.getDate());
+        show.setTrailer(showDTO.getTrailer());
+        show.setRating(ratingRepository.getOne(showDTO.getRating()));
+        show.setGenre(genreRepository.getOne(showDTO.getGenre()));
+
+        return show;
+    }
+
+    public Show mapShow(Show show, ShowDTO showDTO) {
         show.setName(showDTO.getName());
         show.setDate(showDTO.getDate());
         show.setTrailer(showDTO.getTrailer());
