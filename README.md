@@ -45,6 +45,6 @@ Database consists of 3 tables:
 
 ## Live access
 
-Project was deployed on AWS Elastic Beanstalk and now available [here](http://hboschedule-env.eba-fwjgbmry.ap-southeast-1.elasticbeanstalk.com/)
+Project was deployed on AWS Elastic Beanstalk and now available [here](http://hbo-env-1.eba-udjee2vh.ap-southeast-1.elasticbeanstalk.com/)
 
 If you want receive an access to Admin Dashboard - send me request to onetwogleb@yahoo.com
